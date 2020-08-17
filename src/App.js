@@ -42,7 +42,7 @@ function App() {
           <header className="py-4">
             <span className="suez text-6xl block leading-none"> Blox Piece </span>
             <span className="suez uppercase block"> 
-              by <a href="https://www.roblox.com/home" target="_blank" className="underline">roblox</a> 
+              by <a href="https://www.roblox.com/home" target="_blank" rel="noopener noreferrer" className="underline">roblox</a> 
             </span>
           </header>
 
