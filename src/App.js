@@ -41,7 +41,9 @@ function App() {
           <header className="py-4">
             <span className="suez text-6xl text-white block leading-none tracking-wide"> Stats Builder</span>
             <span className="suez uppercase block text-2xl text-white"> 
-              for <a href="https://www.roblox.com/home" target="_blank" rel="noopener noreferrer" className="underline">blox piece</a> 
+              for&nbsp; 
+              <a href="https://www.roblox.com/home" target="_blank" rel="noopener noreferrer" className="text-red-700 hover:underline">blox piece</a>&nbsp;
+              🔥 ⚡️ ☄️
             </span>
           </header>
 
