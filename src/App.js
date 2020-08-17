@@ -39,15 +39,15 @@ function App() {
       <div>
         <div>
           <header className="py-4">
-            <span className="suez text-6xl block leading-none"> Blox Piece </span>
-            <span className="suez uppercase block"> 
+            <span className="suez text-6xl text-white block leading-none tracking-wide"> Blox Piece </span>
+            <span className="suez uppercase block text-xl text-white"> 
               by <a href="https://www.roblox.com/home" target="_blank" rel="noopener noreferrer" className="underline">roblox</a> 
             </span>
           </header>
 
           <div className="border-2">
-            <div className="px-4 py-1 flex items-center bg-black">
-              <span className="flex-1 block text-white text-4xl font-bold"> Stats </span>
+            <div className="px-4 py-1 flex items-center border-b-2 text-center">
+              <span className="flex-1 block text-white text-4xl font-bold"> STATS </span>
               <div className="w-1/6">
                 <input 
                   type="text" 
@@ -57,10 +57,10 @@ function App() {
             </div>
 
             <div className="text-4xl">
-              <div className="px-4 py-2 flex items-center"> 
+              <div className="px-4 py-2 flex items-center border-b-2"> 
                 <div className="flex-1 flex justify-between">
                   <span className="text-red-700 font-bold"> Melee </span>
-                  <span className="pr-3"> Lv. {melee} </span>
+                  <span className="pr-3 text-white"> Lv. {melee} </span>
                 </div>
             
                 <div className="w-1/6">
@@ -72,10 +72,10 @@ function App() {
                 </div>
               </div>
 
-              <div className="px-4 py-2 flex items-center"> 
+              <div className="px-4 py-2 flex items-center border-b-2"> 
                 <div className="flex-1 flex justify-between">
                   <span className="text-blue-700 font-bold"> Defense </span>
-                  <span className="pr-3"> Lv. {defense} </span>
+                  <span className="pr-3 text-white"> Lv. {defense} </span>
                 </div>
             
                 <div className="w-1/6">
@@ -87,10 +87,10 @@ function App() {
                 </div>
               </div>
 
-              <div className="px-4 py-2 flex items-center"> 
+              <div className="px-4 py-2 flex items-center border-b-2"> 
                 <div className="flex-1 flex justify-between">
                   <span className="text-green-700 font-bold"> Sword </span>
-                  <span className="pr-3"> Lv. {sword} </span>
+                  <span className="pr-3 text-white"> Lv. {sword} </span>
                 </div>
             
                 <div className="w-1/6">
@@ -102,10 +102,10 @@ function App() {
                 </div>
               </div>
 
-              <div className="px-4 py-2 flex items-center"> 
+              <div className="px-4 py-2 flex items-center border-b-2"> 
                 <div className="flex-1 flex justify-between">
                   <span className="text-yellow-700 font-bold"> Gun </span>
-                  <span className="pr-3"> Lv. {gun} </span>
+                  <span className="pr-3 text-white"> Lv. {gun} </span>
                 </div>
             
                 <div className="w-1/6">
@@ -117,10 +117,10 @@ function App() {
                 </div>
               </div>
 
-              <div className="px-4 py-2 flex items-center"> 
+              <div className="px-4 py-2 flex items-center border-b-2"> 
                 <div className="flex-1 flex justify-between">
                   <span className="text-purple-700 font-bold"> Blox Fruit </span>
-                  <span className="pr-3"> Lv. {blox} </span>
+                  <span className="pr-3 text-white"> Lv. {blox} </span>
                 </div>
             
                 <div className="w-1/6">
