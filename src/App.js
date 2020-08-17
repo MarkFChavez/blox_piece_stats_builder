@@ -48,7 +48,7 @@ function App() {
 
           <div className="border-2">
             <div className="px-4 py-1 flex items-center bg-black">
-              <span className="flex-1 block uppercase text-white text-4xl font-bold"> Stats </span>
+              <span className="flex-1 block text-white text-4xl font-bold"> Stats </span>
               <div className="w-1/6">
                 <input 
                   type="text" 
