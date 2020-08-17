@@ -35,11 +35,11 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="px-2 md:px-0 mt-2 md:mt-0 min-h-auto md:min-h-screen flex items-center justify-center">
       <div>
         <div>
           <header className="py-4">
-            <span className="suez text-6xl text-white block leading-none tracking-wide"> Stats Builder</span>
+            <span className="suez text-4xl md:text-6xl text-white block leading-none tracking-wide"> Stats Builder</span>
             <span className="suez uppercase block text-2xl text-white"> 
               for&nbsp; 
               <a href="https://www.roblox.com/home" target="_blank" rel="noopener noreferrer" className="text-red-700 hover:underline">blox piece</a>&nbsp;
