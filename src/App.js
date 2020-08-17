@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const totalStatCount = 1250 * 3
+const totalStatCount = 1299 * 3
 const defaultPoint   = 1
 const defaultStat    = 1
 
