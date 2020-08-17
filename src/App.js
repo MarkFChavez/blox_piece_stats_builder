@@ -17,9 +17,8 @@ function App() {
   const increaseStat = (currentValue, setFunc) => {
     let newValue = parseInt(currentValue) + parseInt(point)
 
-    if (point > total) {
-      return
-    }
+    if (!point) { return }
+    if (point > total) { return }
 
     setFunc(newValue)
     setTotal(total - point)
