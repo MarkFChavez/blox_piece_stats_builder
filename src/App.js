@@ -60,12 +60,12 @@ function App () {
 
           <div className='w-full mb-6'>
             <div className='bg-bf-green px-2 text-black flex items-center justify-between'> 
-              <span className='text-3xl tracking-wide'> ❤️ Health: </span> 
+              <span className='text-3xl tracking-wide'> Health: </span> 
               <span className='text-3xl tracking-wide'> {health}/{health}  </span>
             </div>
 
             <div className='bg-bf-blue px-2 text-white flex items-center justify-between'> 
-              <span className='text-3xl tracking-wide'> 🛡 Energy: </span> 
+              <span className='text-3xl tracking-wide'> Energy: </span> 
               <span className='text-3xl tracking-wide'> {energy}/{energy} </span>
             </div>
           </div>
