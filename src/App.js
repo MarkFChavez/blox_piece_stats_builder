@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import Header from './components/Header'
 
-const totalStatCount   = 1299 * 3
 const defaultPoint     = 1
 const defaultStat      = 1
 const defaultHealth    = 100
 const defaultEnergy    = 100
+const maxStatPoint     = 1300
+const totalStatCount   = (maxStatPoint - defaultPoint) * 3
 
 function App () {
   const [total, setTotal]     = useState(totalStatCount)
@@ -21,6 +22,7 @@ function App () {
   const increaseStat = (currentValue, setStat) => {
     let newValue = parseInt(currentValue) + parseInt(point)
 
+    if (newValue > maxStatPoint) { return }
     if (!point) { return }
     if (point > total) { return }
 
