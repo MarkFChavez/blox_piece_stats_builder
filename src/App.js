@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import Header from './components/Header'
 
-const totalStatCount = 1299 * 3
-const defaultPoint   = 1
-const defaultStat    = 1
+const totalStatCount   = 1299 * 3
+const defaultPoint     = 1
+const defaultStat      = 1
+const defaultHealth    = 100
+const defaultEnergy    = 100
 
 function App () {
   const [total, setTotal]     = useState(totalStatCount)
+  const [health, setHealth]   = useState(defaultHealth)
+  const [energy, setEnergy]   = useState(defaultEnergy)
   const [point, setPoint]     = useState(defaultPoint)
   const [melee, setMelee]     = useState(defaultStat)
   const [defense, setDefense] = useState(defaultStat)
@@ -14,18 +18,30 @@ function App () {
   const [gun, setGun]         = useState(defaultStat)
   const [blox, setBlox]       = useState(defaultStat)
 
-  const increaseStat = (currentValue, setFunc) => {
+  const increaseStat = (currentValue, setStat) => {
     let newValue = parseInt(currentValue) + parseInt(point)
 
     if (!point) { return }
     if (point > total) { return }
 
-    setFunc(newValue)
+    setStat(newValue)
     setTotal(total - point)
+
+    if (setStat === setMelee) {
+      const totalEnergy = ((newValue - 1) * 5) + defaultEnergy
+      setEnergy(totalEnergy)
+    }
+
+    if (setStat === setDefense) {
+      const totalHealth = ((newValue - 1) * 5) + defaultHealth
+      setHealth(totalHealth)
+    }
   }
 
   const refundStat = () => {
     setTotal(totalStatCount)
+    setHealth(defaultHealth)
+    setEnergy(defaultEnergy)
     setPoint(defaultPoint)
     setMelee(defaultStat)
     setDefense(defaultStat)
@@ -39,6 +55,18 @@ function App () {
       <div>
         <div>
           <Header title='Stats Builder' />
+
+          <div className='w-full mb-6'>
+            <div className='bg-bf-green px-2 text-black flex items-center justify-between'> 
+              <span className='text-3xl tracking-wide'> ❤️ Health: </span> 
+              <span className='text-3xl tracking-wide'> {health}/{health}  </span>
+            </div>
+
+            <div className='bg-bf-blue px-2 text-white flex items-center justify-between'> 
+              <span className='text-3xl tracking-wide'> 🛡 Energy: </span> 
+              <span className='text-3xl tracking-wide'> {energy}/{energy} </span>
+            </div>
+          </div>
 
           <div className='border-2 border-bf-yellow'>
             <div className='px-4 py-1 flex items-center border-bf-yellow border-b-2 text-center'>
