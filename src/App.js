@@ -55,7 +55,7 @@ function App () {
 
   return (
     <div className='px-2 md:px-0 mt-2 md:mt-0 min-h-auto md:min-h-screen flex items-center justify-center'>
-      <div>
+      <div className='w-auto'>
         <div>
           <Header title='Stats Builder' />
 
@@ -84,7 +84,12 @@ function App () {
               <div className='px-4 py-2 flex items-center border-b-2 border-bf-yellow bg-bf-grey'>
                 <div className='flex-1 flex justify-between'>
                   <span className='text-bf-red font-bold'> Melee </span>
-                  <span className='pr-3 text-white'> Lv. {melee} </span>
+                  <span className='pr-3 text-white whitespace-no-wrap'>
+                    Lv. {melee}
+                    {
+                      melee === maxStatPoint ? <span className='pr-3 text-white'> (MAX) </span> : ''
+                    }
+                  </span>
                 </div>
 
                 <div className='w-1/6'>
@@ -100,7 +105,12 @@ function App () {
               <div className='px-4 py-2 flex items-center border-b-2 border-bf-yellow bg-bf-grey'>
                 <div className='flex-1 flex justify-between'>
                   <span className='font-bold text-bf-blue'> Defense </span>
-                  <span className='pr-3 text-white'> Lv. {defense} </span>
+                  <span className='pr-3 text-white whitespace-no-wrap'>
+                    Lv. {defense}
+                    {
+                      defense === maxStatPoint ? <span className='pr-3 text-white'> (MAX) </span> : ''
+                    }
+                  </span>
                 </div>
 
                 <div className='w-1/6'>
@@ -116,7 +126,12 @@ function App () {
               <div className='px-4 py-2 flex items-center border-yellow border-b-2 border-bf-yellow bg-bf-grey'>
                 <div className='flex-1 flex justify-between'>
                   <span className='text-bf-green font-bold'> Sword </span>
-                  <span className='pr-3 text-white'> Lv. {sword} </span>
+                  <span className='pr-3 text-white whitespace-no-wrap'>
+                    Lv. {sword}
+                    {
+                      sword === maxStatPoint ? <span className='pr-3 text-white'> (MAX) </span> : ''
+                    }
+                  </span>
                 </div>
 
                 <div className='w-1/6'>
@@ -132,7 +147,12 @@ function App () {
               <div className='px-4 py-2 flex items-center border-b-2 border-bf-yellow bg-bf-grey'>
                 <div className='flex-1 flex justify-between'>
                   <span className='text-bf-yellow font-bold'> Gun </span>
-                  <span className='pr-3 text-white'> Lv. {gun} </span>
+                  <span className='pr-3 text-white whitespace-no-wrap'>
+                    Lv. {gun}
+                    {
+                      gun === maxStatPoint ? <span className='pr-3 text-white'> (MAX) </span> : ''
+                    }
+                  </span>
                 </div>
 
                 <div className='w-1/6'>
@@ -147,8 +167,13 @@ function App () {
 
               <div className='px-4 py-2 flex items-center border-b-2 border-bf-yellow bg-bf-grey'>
                 <div className='flex-1 flex justify-between'>
-                  <span className='text-bf-purple font-bold'> Blox Fruit </span>
-                  <span className='pr-3 text-white'> Lv. {blox} </span>
+                  <span className='text-bf-purple font-bold whitespace-no-wrap'> Blox Fruit </span>
+                  <span className='pr-3 text-white whitespace-no-wrap'>
+                    Lv. {blox}
+                    {
+                      blox === maxStatPoint ? <span className='pr-3 text-white'> (MAX) </span> : ''
+                    }
+                  </span>
                 </div>
 
                 <div className='w-1/6'>
