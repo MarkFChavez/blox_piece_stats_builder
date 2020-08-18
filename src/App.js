@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Header from './components/Header'
 
 const totalStatCount = 1299 * 3
 const defaultPoint   = 1
@@ -37,23 +38,7 @@ function App () {
     <div className='px-2 md:px-0 mt-2 md:mt-0 min-h-auto md:min-h-screen flex items-center justify-center'>
       <div>
         <div>
-          <header className='py-4'>
-            <span className='suez text-4xl md:text-6xl text-white block leading-none tracking-wide'>
-              Stats Builder
-            </span>
-            <span className='suez uppercase block text-2xl text-white'>
-              for&nbsp;
-              <a
-                href='https://www.roblox.com/home'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='text-red-700 hover:underline'
-              >
-                blox piece
-              </a>
-              &nbsp; 🔥 ⚡️ ☄️
-            </span>
-          </header>
+          <Header title='Stats Builder' />
 
           <div className='border-2 border-bf-yellow'>
             <div className='px-4 py-1 flex items-center border-bf-yellow border-b-2 text-center'>
