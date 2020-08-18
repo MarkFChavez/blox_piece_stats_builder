@@ -40,7 +40,7 @@ function App () {
     }
   }
 
-  const refundStat = () => {
+  const resetStat = () => {
     setTotal(totalStatCount)
     setHealth(defaultHealth)
     setEnergy(defaultEnergy)
@@ -176,9 +176,9 @@ function App () {
               <div>
                 <button
                   className='w-ful bg-bf-yellow hover:bg-yellow-500'
-                  onClick={() => refundStat()}
+                  onClick={() => resetStat()}
                 >
-                  <span className='p-2 font-bold'> Refund </span>
+                  <span className='p-2 font-bold'> Reset </span>
                 </button>
               </div>
             </div>
