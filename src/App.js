@@ -75,6 +75,7 @@ function App () {
                   className='w-full h-12 text-4xl text-center'
                   value={point}
                   onChange={e => setPoint(e.target.value)}
+                  autofocus=''
                 />
               </div>
             </div>
