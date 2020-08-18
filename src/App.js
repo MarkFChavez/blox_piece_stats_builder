@@ -23,9 +23,7 @@ function App () {
   const increaseStat = (currentValue, setStat) => {
     let newValue = parseInt(currentValue) + parseInt(point)
 
-    if (newValue > maxStatPoint) { return }
-    if (!point) { return }
-    if (point > total) { return }
+    if (!isValidForUpdate(currentValue, newValue)) { return }
 
     setStat(newValue)
     setTotal(total - point)
@@ -39,6 +37,24 @@ function App () {
       const totalHealth = ((newValue - 1) * 5) + defaultHealth
       setHealth(totalHealth)
     }
+  }
+
+  const isValidForUpdate = (currentValue, newValue) => {
+    let isValid = true
+
+    switch (true) {
+      case (parseInt(point) < 0):
+      case (!Number.isFinite(newValue)):
+      case (newValue > maxStatPoint):
+      case (!point):
+      case (point > total):
+        isValid = false
+        break;
+      default:
+        isValid = true
+    }
+
+    return isValid
   }
 
   const resetStat = () => {
