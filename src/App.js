@@ -76,8 +76,8 @@ function App () {
           <Header title='Stats Builder' />
 
           <div className='w-full mb-6'>
-            <ValueBar name='Health' value={health} bgColor='bg-bf-green' />
-            <ValueBar name='Energy' value={energy} bgColor='bg-bf-blue' />
+            <ValueBar name='Health' value={health} bgColor='bg-bf-green' fgColor='text-black' />
+            <ValueBar name='Energy' value={energy} bgColor='bg-bf-blue' fgColor='text-white' />
           </div>
 
           <div className='border-2 border-bf-yellow'>

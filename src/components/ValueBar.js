@@ -1,7 +1,7 @@
 import React from 'react'
 
 function ValueBar (props) {
-  const klasses = `${props.bgColor} px-2 text-black flex items-center justify-between`
+  const klasses = `${props.bgColor} ${props.fgColor} px-2 flex items-center justify-between`
 
   return (
     <div className={klasses}> 
