@@ -1,27 +1,23 @@
 import React, { useState } from 'react'
 
 const totalStatCount = 1299 * 3
-const defaultPoint = 1
-const defaultStat = 1
+const defaultPoint   = 1
+const defaultStat    = 1
 
 function App () {
-  const [total, setTotal] = useState(totalStatCount)
-  const [point, setPoint] = useState(defaultPoint)
-  const [melee, setMelee] = useState(defaultStat)
+  const [total, setTotal]     = useState(totalStatCount)
+  const [point, setPoint]     = useState(defaultPoint)
+  const [melee, setMelee]     = useState(defaultStat)
   const [defense, setDefense] = useState(defaultStat)
-  const [sword, setSword] = useState(defaultStat)
-  const [gun, setGun] = useState(defaultStat)
-  const [blox, setBlox] = useState(defaultStat)
+  const [sword, setSword]     = useState(defaultStat)
+  const [gun, setGun]         = useState(defaultStat)
+  const [blox, setBlox]       = useState(defaultStat)
 
   const increaseStat = (currentValue, setFunc) => {
     let newValue = parseInt(currentValue) + parseInt(point)
 
-    if (!point) {
-      return
-    }
-    if (point > total) {
-      return
-    }
+    if (!point) { return }
+    if (point > total) { return }
 
     setFunc(newValue)
     setTotal(total - point)
@@ -43,7 +39,6 @@ function App () {
         <div>
           <header className='py-4'>
             <span className='suez text-4xl md:text-6xl text-white block leading-none tracking-wide'>
-              {' '}
               Stats Builder
             </span>
             <span className='suez uppercase block text-2xl text-white'>
@@ -63,8 +58,7 @@ function App () {
           <div className='border-2 border-bf-yellow'>
             <div className='px-4 py-1 flex items-center border-bf-yellow border-b-2 text-center'>
               <span className='flex-1 block text-white text-4xl font-bold'>
-                {' '}
-                STATS{' '}
+                STATS
               </span>
               <div className='w-1/6'>
                 <input
