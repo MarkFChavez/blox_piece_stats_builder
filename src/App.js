@@ -194,6 +194,12 @@ function App () {
               </div>
             </div>
           </div>
+
+          <div className="mt-2 flex flex-row-reverse">
+            <button className="text-white suez text-lg hover:underline" data-feedback-fish>
+              Submit Feedback
+            </button>
+          </div>
         </div>
       </div>
     </div>
