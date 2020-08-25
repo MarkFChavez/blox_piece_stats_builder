@@ -29,17 +29,20 @@ function App () {
 
     if (ciphertext === null) { return }
 
-    const plainobj = JSON.parse(decrypt(ciphertext))
-
-    setTotal(plainobj.total)
-    setHealth(plainobj.health)
-    setEnergy(plainobj.energy)
-    setPoint(plainobj.point)
-    setMelee(plainobj.melee)
-    setDefense(plainobj.defense)
-    setSword(plainobj.sword)
-    setGun(plainobj.gun)
-    setBlox(plainobj.blox)
+    try {
+      const plainobj = JSON.parse(decrypt(ciphertext))
+      setTotal(plainobj.total)
+      setHealth(plainobj.health)
+      setEnergy(plainobj.energy)
+      setPoint(plainobj.point)
+      setMelee(plainobj.melee)
+      setDefense(plainobj.defense)
+      setSword(plainobj.sword)
+      setGun(plainobj.gun)
+      setBlox(plainobj.blox)
+    } catch(err) {
+      console.log("😑 dude....stop this shit you're doing")
+    }
   }, [])
 
   const increaseStat = (currentValue, setStat) => {
