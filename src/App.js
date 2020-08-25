@@ -45,6 +45,22 @@ function App () {
     }
   }, [])
 
+  useEffect(() => {
+    const plaintext  = JSON.stringify({ 
+      total,
+      health,
+      energy,
+      point,
+      melee,
+      defense,
+      sword,
+      gun,
+      blox,
+    })
+    const ciphertext = encrypt(plaintext)
+    setShareCode(ciphertext)
+  }, [total, health, energy, point, melee, defense, sword, gun, blox]);
+
   const increaseStat = (currentValue, setStat) => {
     let newValue = parseInt(currentValue) + parseInt(point)
 
@@ -62,30 +78,11 @@ function App () {
       const totalHealth = ((newValue - 1) * 5) + defaultHealth
       setHealth(totalHealth)
     }
-
-    setShareCode(defaultShareCode)
   }
 
   const shareUrl = function() {
-    return shareCode === null ? '' : `${window.location.origin}?s=${encodeURIComponent(shareCode)}`
-  }
-
-  const shareStats = () => {
-    const plaintext  = JSON.stringify({ 
-      total,
-      health,
-      energy,
-      point,
-      melee,
-      defense,
-      sword,
-      gun,
-      blox,
-    })
-    const ciphertext = encrypt(plaintext)
-    setShareCode(ciphertext)
-
-    // highlight text
+    const originUrl = window.location.origin
+    return shareCode === null ? originUrl : `${originUrl}?s=${encodeURIComponent(shareCode)}`
   }
 
   const isValidForUpdate = (currentValue, newValue) => {
@@ -125,9 +122,19 @@ function App () {
         <div>
           <Header title='Stats Builder' />
 
-          <div className='w-full mb-6'>
+          <div className='w-full mb-4'>
             <ValueBar name='Health' value={health} bgColor='bg-bf-green' fgColor='text-black' />
             <ValueBar name='Energy' value={energy} bgColor='bg-bf-blue' fgColor='text-white' />
+          </div>
+
+          <div className="mb-4 w-full">
+            <div className='bg-bf-yellow px-2 py-1 inline-block'>
+              <span className='text-black suez text-lg'> Share your stats! </span>
+            </div>
+            <div className='p-2 border-2 border-bf-yellow flex items-center'>
+              <span className='mr-2 text-xl' role='img' aria-label='waves at ya'> 👋🏼 </span>
+              <input type='text' value={shareUrl()} className='w-full cursor-pointer bg-black text-white text-xl suez appearance-none outline-none' readOnly />
+            </div>
           </div>
 
           <div className='border-2 border-bf-yellow'>
@@ -241,13 +248,6 @@ function App () {
                   <span className='p-2 font-bold'> Reset </span>
                 </button>
               </div>
-            </div>
-          </div>
-
-          <div className="flex items-center mt-2 w-full border-2 border-bf-yellow px-1">
-            <button onClick={shareStats} className='w-1/6 text-black text-xl bg-bf-yellow hover:bg-yellow-500 suez p-2'> Share </button>
-            <div className='p-2 flex-1'>
-              <input type='text' value={shareUrl()} className='w-full bg-black text-white text-xl suez appearance-none outline-none p-2 border border-bf-yellow' readOnly />
             </div>
           </div>
 
