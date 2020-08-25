@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { encrypt, decrypt } from './commons/base'
 import Header from './components/Header'
 import ValueBar from './components/ValueBar'
 
+const defaultShareCode = null
 const defaultPoint     = 1
 const defaultStat      = 1
 const defaultHealth    = 100
@@ -10,15 +12,35 @@ const maxStatPoint     = 1300
 const totalStatCount   = (maxStatPoint - defaultPoint) * 3
 
 function App () {
-  const [total, setTotal]     = useState(totalStatCount)
-  const [health, setHealth]   = useState(defaultHealth)
-  const [energy, setEnergy]   = useState(defaultEnergy)
-  const [point, setPoint]     = useState(defaultPoint)
-  const [melee, setMelee]     = useState(defaultStat)
-  const [defense, setDefense] = useState(defaultStat)
-  const [sword, setSword]     = useState(defaultStat)
-  const [gun, setGun]         = useState(defaultStat)
-  const [blox, setBlox]       = useState(defaultStat)
+  const [total, setTotal]         = useState(totalStatCount)
+  const [health, setHealth]       = useState(defaultHealth)
+  const [energy, setEnergy]       = useState(defaultEnergy)
+  const [point, setPoint]         = useState(defaultPoint)
+  const [melee, setMelee]         = useState(defaultStat)
+  const [defense, setDefense]     = useState(defaultStat)
+  const [sword, setSword]         = useState(defaultStat)
+  const [gun, setGun]             = useState(defaultStat)
+  const [blox, setBlox]           = useState(defaultStat)
+  const [shareCode, setShareCode] = useState(defaultShareCode)
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    const ciphertext = urlParams.get('s')
+
+    if (ciphertext === null) { return }
+
+    const plainobj = JSON.parse(decrypt(ciphertext))
+
+    setTotal(plainobj.total)
+    setHealth(plainobj.health)
+    setEnergy(plainobj.energy)
+    setPoint(plainobj.point)
+    setMelee(plainobj.melee)
+    setDefense(plainobj.defense)
+    setSword(plainobj.sword)
+    setGun(plainobj.gun)
+    setBlox(plainobj.blox)
+  }, [])
 
   const increaseStat = (currentValue, setStat) => {
     let newValue = parseInt(currentValue) + parseInt(point)
@@ -37,6 +59,30 @@ function App () {
       const totalHealth = ((newValue - 1) * 5) + defaultHealth
       setHealth(totalHealth)
     }
+
+    setShareCode(defaultShareCode)
+  }
+
+  const shareUrl = function() {
+    return shareCode === null ? '' : `${window.location.origin}?s=${encodeURIComponent(shareCode)}`
+  }
+
+  const shareStats = () => {
+    const plaintext  = JSON.stringify({ 
+      total,
+      health,
+      energy,
+      point,
+      melee,
+      defense,
+      sword,
+      gun,
+      blox,
+    })
+    const ciphertext = encrypt(plaintext)
+    setShareCode(ciphertext)
+
+    // highlight text
   }
 
   const isValidForUpdate = (currentValue, newValue) => {
@@ -67,6 +113,7 @@ function App () {
     setSword(defaultStat)
     setGun(defaultStat)
     setBlox(defaultStat)
+    setShareCode(defaultShareCode)
   }
 
   return (
@@ -91,7 +138,6 @@ function App () {
                   className='w-full h-12 text-4xl text-center'
                   value={point}
                   onChange={e => setPoint(e.target.value)}
-                  autofocus=''
                 />
               </div>
             </div>
@@ -192,6 +238,13 @@ function App () {
                   <span className='p-2 font-bold'> Reset </span>
                 </button>
               </div>
+            </div>
+          </div>
+
+          <div className="hidden md:flex mt-2 w-full items-center border-2 border-bf-yellow px-1">
+            <button onClick={shareStats} className='w-1/6 text-black text-xl bg-bf-yellow hover:bg-yellow-500 suez p-2'> Share </button>
+            <div className='p-2 flex-1'>
+              <input type='text' value={shareUrl()} className='w-full bg-black text-white text-xl suez appearance-none outline-none p-2 border border-bf-yellow' readOnly />
             </div>
           </div>
 
