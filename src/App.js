@@ -244,7 +244,7 @@ function App () {
             </div>
           </div>
 
-          <div className="hidden md:flex mt-2 w-full items-center border-2 border-bf-yellow px-1">
+          <div className="flex items-center mt-2 w-full border-2 border-bf-yellow px-1">
             <button onClick={shareStats} className='w-1/6 text-black text-xl bg-bf-yellow hover:bg-yellow-500 suez p-2'> Share </button>
             <div className='p-2 flex-1'>
               <input type='text' value={shareUrl()} className='w-full bg-black text-white text-xl suez appearance-none outline-none p-2 border border-bf-yellow' readOnly />
