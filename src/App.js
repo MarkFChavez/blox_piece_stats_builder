@@ -8,7 +8,7 @@ const defaultPoint     = 1
 const defaultStat      = 1
 const defaultHealth    = 100
 const defaultEnergy    = 100
-const maxStatPoint     = 1300
+const maxStatPoint     = 1350
 const totalStatCount   = (maxStatPoint - defaultPoint) * 3
 
 function App () {

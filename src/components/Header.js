@@ -18,7 +18,7 @@ function Header (props) {
         >
           blox piece
         </a>
-        &nbsp;(update 11)
+        &nbsp;(update 12)
         &nbsp; 🔥 ⚡️ ☄️
       </span>
     </header>
